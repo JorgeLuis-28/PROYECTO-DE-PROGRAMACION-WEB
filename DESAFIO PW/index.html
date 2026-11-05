@@ -31,9 +31,53 @@
     </nav>
 </header>
 
-<section class="hero">
-    <h2>GRUPO ANUARIO CABRERA RONCAL E.I.R.L.</h2>
-    <a href="#mision" class="btn">Conócenos</a>
+<!-- HERO CON CARRUSEL DE IMÁGENES -->
+<section class="hero" id="carrusel" aria-roledescription="carrusel" aria-label="Trabajos de la empresa">
+
+    <!-- Imágenes del carrusel: solo la que tiene la clase "activo" se ve -->
+    <div class="carrusel-pista">
+        <figure class="slide activo">
+            <img src="img/carrusel/excavadora-cat.jpg" alt="Excavadora CAT de la empresa lista para ser transportada en cama baja">
+            <figcaption>Alquiler de maquinaria pesada</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/transporte-excavadora.jpg" alt="Camión tracto transportando una excavadora CAT sobre una cama baja">
+            <figcaption>Transporte de maquinarias</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/soldadura-cucharon.jpg" alt="Soldador con careta reparando el cucharón de una excavadora">
+            <figcaption>Reparación de cucharones</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/reparacion-cucharon.jpg" alt="Soldador reforzando con planchas un cucharón de excavadora">
+            <figcaption>Soldadura y refuerzo de estructuras</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/mantenimiento-motor.jpg" alt="Técnico ajustando con torquímetro el motor de una máquina pesada">
+            <figcaption>Mantenimiento de motores</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/mantenimiento-hidraulico.jpg" alt="Dos técnicos con casco realizando mantenimiento a una excavadora">
+            <figcaption>Mantenimiento preventivo de equipos</figcaption>
+        </figure>
+    </div>
+
+    <!-- Texto fijo encima de las imágenes -->
+    <div class="hero-contenido">
+        <h2>GRUPO ANUARIO CABRERA RONCAL E.I.R.L.</h2>
+        <p>Construcción, movimiento de tierras y alquiler de maquinaria pesada en Cajamarca</p>
+        <a href="nosotros.html" class="btn" target="_blank" rel="noopener" aria-label="Conócenos (se abre en una nueva pestaña)">Conócenos</a>
+    </div>
+
+    <!-- Controles -->
+    <button type="button" class="carrusel-btn anterior" id="btnAnterior" aria-label="Imagen anterior">&#10094;</button>
+    <button type="button" class="carrusel-btn siguiente" id="btnSiguiente" aria-label="Imagen siguiente">&#10095;</button>
+
+    <div class="carrusel-pie">
+        <!-- Los puntos se crean con JavaScript (createElement + appendChild) -->
+        <div class="carrusel-puntos" id="puntos"></div>
+        <button type="button" class="carrusel-pausa" id="btnPausa" aria-label="Pausar carrusel">&#10074;&#10074;</button>
+    </div>
 </section>
 
 <!-- SECCIÓN MISIÓN -->
@@ -124,5 +168,6 @@
     <p>© 2026 GRUPO ANUARIO CABRERA RONCAL E.I.R.L. Todos los derechos reservados.</p>
 </footer>
 
+<script src="js/app.js"></script>
 </body>
 </html>

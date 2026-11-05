@@ -6,6 +6,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 110px;   /* la cabecera fija no tapa los títulos */
 }
 
 body {
@@ -17,12 +18,14 @@ body {
 /* CABECERA */
 
 header {
-    background: #fff;
+    background: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    gap: 20px;
+    padding: 14px 40px;
+    border-top: 5px solid #f59e0b;      /* franja de color de la marca */
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -31,14 +34,26 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
+}
+
+/* Línea suave que separa el logo del nombre */
+.logo > a {
+    display: block;
+    padding-right: 16px;
+    border-right: 2px solid #fde3b0;
 }
 
 .logo-img {
-    height: 45px;
+    height: 68px;
     width: auto;
     object-fit: contain;
     display: block;
+    transition: transform 0.3s;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 .logo-text {
@@ -48,43 +63,76 @@ header {
 
 .logo-text h1 {
     color: #f59e0b;
-    font-size: 1.1rem;
-    font-weight: bold;
-    letter-spacing: 0.3px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: 0.4px;
+    line-height: 1.15;
 }
 
 .logo-text p {
-    color: #666666;
-    font-size: 11px;
-    margin-top: 1px;
+    color: #555555;
+    font-size: 0.82rem;
+    margin-top: 5px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
 }
 
 .menu {
     list-style: none;
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
 }
 
 .menu a {
+    position: relative;
     text-decoration: none;
-    color: #333;
+    color: #2b2b2b;
     font-weight: bold;
-    font-size: 0.9rem;
-    padding: 8px 10px;
+    font-size: 0.95rem;
+    padding: 10px 10px;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: color 0.3s, background 0.3s;
     white-space: nowrap;
 }
 
-.menu a:hover {
+/* Subrayado animado debajo del enlace */
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 3px;
+    height: 3px;
+    border-radius: 2px;
     background: #f59e0b;
-    color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
-/* HERO CON IMAGEN DE FONDO */
+.menu a:hover {
+    background: #fff7e6;
+    color: #d97706;
+}
+
+.menu a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Pantallas medianas: el menú pasa a una segunda fila centrada */
+@media (max-width: 1300px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 10px;
+    }
+}
+
+/* HERO CON CARRUSEL */
 
 .hero {
+    position: relative;          /* referencia para los elementos "absolute" */
     min-height: 90vh;
     display: flex;
     flex-direction: column;
@@ -92,8 +140,60 @@ header {
     align-items: center;
     text-align: center;
     padding: 60px 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('LOGO/fondo.png') no-repeat center center / cover;
+    overflow: hidden;
+    background: #222;            /* color mientras cargan las fotos */
     color: #ffffff;
+}
+
+/* Las imágenes se apilan una encima de otra y ocupan todo el hero */
+.carrusel-pista {
+    position: absolute;
+    inset: 0;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;                  /* ocultas por defecto */
+    transition: opacity 0.8s ease;
+}
+
+.slide.activo {
+    opacity: 1;                  /* solo la activa se ve */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* recorta sin deformar */
+    object-position: center 40%;
+}
+
+/* Capa oscura para que el texto blanco tenga buen contraste */
+.slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65));
+}
+
+.slide figcaption {
+    position: absolute;
+    left: 25px;
+    bottom: 70px;
+    z-index: 1;
+    background: rgba(245, 158, 11, 0.95);
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+}
+
+.hero-contenido {
+    position: relative;          /* queda por encima de las imágenes */
+    z-index: 2;
+    max-width: 900px;
 }
 
 .hero h2 {
@@ -101,6 +201,169 @@ header {
     margin-bottom: 20px;
     color: #ffffff;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-contenido p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero-contenido .btn {
+    display: inline-block;
+}
+
+/* Flechas anterior / siguiente */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carrusel-btn:hover {
+    background: #f59e0b;
+}
+
+.anterior { left: 20px; }
+.siguiente { right: 20px; }
+
+/* Puntos y botón de pausa */
+.carrusel-pie {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.carrusel-puntos {
+    display: flex;
+    gap: 10px;
+}
+
+.punto {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.punto.activo {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    transform: scale(1.25);
+}
+
+.carrusel-pausa {
+    border: 2px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    padding: 3px 7px;
+    cursor: pointer;
+}
+
+/* ACCESIBILIDAD: foco visible al navegar con teclado (Tab) */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+/* ACCESIBILIDAD: si el usuario pide menos animación, se quita el fundido */
+@media (prefers-reduced-motion: reduce) {
+    .slide { transition: none; }
+    html { scroll-behavior: auto; }
+}
+
+/* RESPONSIVE: celulares */
+@media (max-width: 768px) {
+    /* Cabecera: logo arriba y menú abajo con scroll horizontal */
+    header {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 10px 15px;
+    }
+
+    .logo-img {
+        height: 48px;
+    }
+
+    .logo > a {
+        padding-right: 10px;
+    }
+
+    .logo-text h1 {
+        font-size: 0.85rem;
+        white-space: normal;
+    }
+
+    .logo-text p {
+        display: none;
+    }
+
+    .menu {
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .menu a {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero-contenido {
+        padding: 0 35px;   /* deja espacio para las flechas */
+    }
+
+    .hero h2 {
+        font-size: 1.9rem;
+    }
+
+    .hero-contenido p {
+        font-size: 1rem;
+    }
+
+    .carrusel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+
+    .anterior { left: 8px; }
+    .siguiente { right: 8px; }
+
+    .slide figcaption {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 60px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
 }
 
 .btn {
@@ -123,18 +386,6 @@ header {
 
 section {
     padding: 40px 20px;
-}
-
-#mision, #vision {
-    padding-top: 90px;
-}
-
-#tipos-obras {
-    padding-top: 90px;
-}
-
-#servicios {
-    padding-top: 90px;
 }
 
 .container {
@@ -221,4 +472,64 @@ footer {
     text-align: center;
     padding: 30px;
     margin-top: 40px;
+}
+
+/* PÁGINA NOSOTROS */
+
+.banner-pagina {
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    color: #ffffff;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)),
+        url('img/carrusel/excavadora-cat.jpg') center 40% / cover no-repeat;
+}
+
+.banner-pagina h2 {
+    color: #ffffff;
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.banner-pagina p {
+    font-size: 1.15rem;
+    max-width: 700px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.acciones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.acciones .btn {
+    margin-top: 0;
+}
+
+.btn-borde {
+    background: transparent;
+    color: #d97706;
+    border: 2px solid #f59e0b;
+    box-shadow: none;
+}
+
+.btn-borde:hover {
+    background: #f59e0b;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .banner-pagina h2 {
+        font-size: 1.9rem;
+    }
 }
