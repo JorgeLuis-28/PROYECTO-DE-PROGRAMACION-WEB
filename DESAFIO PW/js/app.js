@@ -133,3 +133,55 @@ carrusel.addEventListener("keydown", (e) => {
 crearPuntos();
 mostrarSlide(0);
 iniciarAuto();
+
+
+// =====================================================
+// FILTRO DE MAQUINARIAS Y EQUIPOS
+// Eventos usados: click
+// Manipulación del DOM: classList, setAttribute, textContent
+// =====================================================
+
+// Paso 1: obtener los elementos del DOM
+const botonesFiltro = document.querySelectorAll(".filtro");
+const panelesEquipos = document.querySelectorAll(".panel-equipos");
+const contadorEquipos = document.getElementById("contadorEquipos");
+
+// Paso 2: mostrar solo los paneles de la categoría elegida
+function filtrarEquipos(categoria) {
+    let totalVisibles = 0;
+
+    panelesEquipos.forEach((panel) => {
+        const coincide = categoria === "todos" || panel.dataset.categoria === categoria;
+
+        if (coincide) {
+            panel.classList.remove("oculto");
+            totalVisibles += panel.querySelectorAll("li").length;
+        } else {
+            panel.classList.add("oculto");
+        }
+    });
+
+    // Paso 3: actualizar el texto del contador
+    contadorEquipos.textContent = "Mostrando " + totalVisibles + " tipos de equipos";
+}
+
+// Paso 4: marcar el botón activo
+function marcarBotonActivo(botonElegido) {
+    botonesFiltro.forEach((boton) => {
+        boton.classList.remove("activo");
+        boton.setAttribute("aria-pressed", "false");
+    });
+    botonElegido.classList.add("activo");
+    botonElegido.setAttribute("aria-pressed", "true");
+}
+
+// Paso 5: registrar el evento click en cada botón
+botonesFiltro.forEach((boton) => {
+    boton.addEventListener("click", () => {
+        marcarBotonActivo(boton);
+        filtrarEquipos(boton.dataset.categoria);
+    });
+});
+
+// Paso 6: estado inicial (todos los equipos)
+filtrarEquipos("todos");
