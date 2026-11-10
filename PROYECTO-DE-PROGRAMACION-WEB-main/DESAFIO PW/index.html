@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRUPO ANUARIO CABRERA RONCAL E.I.R.L.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ICONOS: se dibujan una sola vez y se reutilizan con <use href="#id"> -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-edificio" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10 21v-3h4v3"/></symbol>
+    <symbol id="i-tierra" viewBox="0 0 24 24"><path d="m2 20 7-11 4 6 3-4 6 9z"/><path d="M9 9l2-3"/></symbol>
+    <symbol id="i-trocha" viewBox="0 0 24 24"><path d="M8 3 4 21M16 3l4 18M12 4v2M12 10v3M12 17v3"/></symbol>
+    <symbol id="i-gota" viewBox="0 0 24 24"><path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+    <symbol id="i-agua" viewBox="0 0 24 24"><path d="M2 7c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2M2 12.5c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2M2 18c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></symbol>
+    <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h14V9.5M10 21v-6h4v6"/></symbol>
+    <symbol id="i-cono" viewBox="0 0 24 24"><path d="M9.5 4h5l4 15h-13zM7.6 11h8.8M3 20h18"/></symbol>
+    <symbol id="i-llave" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 14l2 2 4-4"/></symbol>
+    <symbol id="i-grafico" viewBox="0 0 24 24"><path d="M3 3v18h18M8 17v-5M13 17V8M18 17v-9"/></symbol>
+    <symbol id="i-plano" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5"/></symbol>
+    <symbol id="i-excavadora" viewBox="0 0 24 24"><path d="M2 17h11v3H2zM4 17v-4h7v4M11 13l4-7 5 3M20 9l1.5 5h-4"/></symbol>
+    <symbol id="i-camion" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></symbol>
+    <symbol id="i-chispa" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-ubicacion" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-telefono" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-correo" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-mision" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-vision" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-personas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5.5 5"/></symbol>
+    <symbol id="i-corazon" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-medalla" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="m9 13.8-1.5 7.2 4.5-2.5 4.5 2.5-1.5-7.2"/></symbol>
+    <symbol id="i-casco" viewBox="0 0 24 24"><path d="M3 17h18v2.5H3zM5 17a7 7 0 0 1 14 0M10 10.2V6h4v4.2"/></symbol>
+    <symbol id="i-mensaje" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></symbol>
+</svg>
+
+<header>
+    <div class="logo">
+        <a href="#">
+            <img src="LOGO/logo.png" alt="Logo Grupo ACR E.I.R.L." class="logo-img">
+        </a>
+        <div class="logo-text">
+            <h1>GRUPO ANUARIO CABRERA RONCAL E.I.R.L.</h1>
+            <p>Construcción • Movimiento de Tierras • Transporte • Maquinaria Pesada</p>
+        </div>
+    </div>
+
+    <nav>
+    <ul class="menu">
+        <li><a href="nosotros.html" target="_blank" rel="noopener noreferrer">Nosotros</a></li>
+        <li><a href="#tipos-obras">Tipos de Obra</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#maquinarias">Maquinarias</a></li>
+        <li><a href="#agregados">Agregados</a></li>
+        <li><a href="registrarse.html" target="_blank" rel="noopener noreferrer" class="btn-menu-registro">Registrarse</a></li>
+    </ul>
+</nav>
+</header>
+
+<!-- HERO CON CARRUSEL DE IMÁGENES -->
+<section class="hero" id="carrusel" aria-roledescription="carrusel" aria-label="Trabajos de la empresa">
+    <div class="carrusel-pista">
+        <figure class="slide activo">
+            <img src="img/carrusel/excavadora-cat.jpg" alt="Excavadora CAT de la empresa lista para ser transportada en cama baja">
+            <figcaption>Alquiler de maquinaria pesada</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/transporte-excavadora.jpg" alt="Camión tracto transportando una excavadora CAT sobre una cama baja">
+            <figcaption>Transporte de maquinarias</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/soldadura-cucharon.jpg" alt="Soldador con careta reparando el cucharón de una excavadora">
+            <figcaption>Reparación de cucharones</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/reparacion-cucharon.jpg" alt="Soldador reforzando con planchas un cucharón de excavadora">
+            <figcaption>Soldadura y refuerzo de estructuras</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/mantenimiento-motor.jpg" alt="Técnico ajustando con torquímetro el motor de una máquina pesada">
+            <figcaption>Mantenimiento de motores</figcaption>
+        </figure>
+        <figure class="slide">
+            <img src="img/carrusel/mantenimiento-hidraulico.jpg" alt="Dos técnicos con casco realizando mantenimiento a una excavadora">
+            <figcaption>Mantenimiento preventivo de equipos</figcaption>
+        </figure>
+    </div>
+
+    <div class="hero-contenido">
+        <h2>GRUPO ANUARIO CABRERA RONCAL E.I.R.L.</h2>
+        <p>Construcción, movimiento de tierras y alquiler de maquinaria pesada en Cajamarca</p>
+        <a href="nosotros.html" class="btn" aria-label="Conócenos">Conócenos</a>
+    </div>
+
+    <button type="button" class="carrusel-btn anterior" id="btnAnterior" aria-label="Imagen anterior">&#10094;</button>
+    <button type="button" class="carrusel-btn siguiente" id="btnSiguiente" aria-label="Imagen siguiente">&#10095;</button>
+
+    <div class="carrusel-pie">
+        <div class="carrusel-puntos" id="puntos"></div>
+        <button type="button" class="carrusel-pausa" id="btnPausa" aria-label="Pausar carrusel">&#10074;&#10074;</button>
+    </div>
+</section>
+
+<!-- MISIÓN Y VISIÓN (lado a lado) -->
+<section class="seccion-clara">
+    <div class="container dos-columnas">
+        <article class="bloque-mv" id="mision">
+            <span class="icono-circulo"><svg><use href="#i-mision"></use></svg></span>
+            <h2>Misión</h2>
+            <p>Ejecutar obras y prestar servicios de construcción que satisfagan plenamente las necesidades de nuestros clientes, utilizando todas las herramientas necesarias para que los trabajos sean realizados con calidad, seguridad y cuidado del medio ambiente. Así mismo, contribuir con el desarrollo de la sociedad y generar valores.</p>
+        </article>
+        <article class="bloque-mv" id="vision">
+            <span class="icono-circulo"><svg><use href="#i-vision"></use></svg></span>
+            <h2>Visión</h2>
+            <p>Ser parte del grupo de empresas constructoras líderes en el Perú que contribuyan con el crecimiento del país, ejecutando obras que sean reconocidas por la calidad, seguridad y cuidado del medio ambiente durante su ejecución.</p>
+        </article>
+    </div>
+</section>
+
+<!-- TIPOS DE OBRA -->
+<section id="tipos-obras">
+    <div class="container">
+        <p class="etiqueta">Lo que construimos</p>
+        <h2>Tipos de Obra que Ejecutamos</h2>
+        <p class="intro">Desde la edificación hasta obras de saneamiento y viales, ejecutamos cada proyecto con calidad, seguridad y cuidado del medio ambiente.</p>
+
+        <div class="grid-tarjetas">
+            <article class="tarjeta">
+                <span class="icono-circulo"><svg><use href="#i-edificio"></use></svg></span>
+                <h3>Edificación</h3>
+                <p>Construcción de locales, oficinas y edificaciones de concreto armado.</p>
+            </article>
+            <article class="tarjeta">
+                <span class="icono-circulo"><svg><use href="#i-tierra"></use></svg></span>
+                <h3>Movimiento de Tierras</h3>
+                <p>Excavación, corte, relleno y nivelación de terrenos.</p>
+            </article>
+            <article class="tarjeta">
+                <span class="icono-circulo"><svg><use href="#i-trocha"></use></svg></span>
+                <h3>Trochas Carrozables</h3>
+                <p>Apertura y mejoramiento de caminos rurales para conectar comunidades.</p>
+            </article>
+            <article class="tarjeta">
+                <span class="icono-circulo"><svg><use href="#i-gota"></use></svg></span>
+                <h3>Saneamiento</h3>
+                <p>Sistemas de saneamiento básico para pueblos y centros poblados.</p>
+            </article>
+            <article class="tarjeta">
+                <span class="icono-circulo"><svg><use href="#i-agua"></use></svg></span>
+                <h3>Agua y Desagüe</h3>
+                <p>Instalación de redes de agua potable y alcantarillado.</p>
+            </article>
+            <article class="tarjeta">
+                <span class="icono-circulo"><svg><use href="#i-casa"></use></svg></span>
+                <h3>Viviendas</h3>
+                <p>Construcción de viviendas seguras, durables y bien acabadas.</p>
+            </article>
+            <article class="tarjeta">
+                <span class="icono-circulo"><svg><use href="#i-cono"></use></svg></span>
+                <h3>Obras Viales</h3>
+                <p>Pistas, veredas, carreteras y obras de infraestructura vial.</p>
+            </article>
+            <article class="tarjeta">
+                <span class="icono-circulo"><svg><use href="#i-llave"></use></svg></span>
+                <h3>Rehabilitación</h3>
+                <p>Recuperación y mejoramiento de obras e infraestructura existentes.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="seccion-oscura">
+    <div class="container">
+        <p class="etiqueta">Cómo te ayudamos</p>
+        <h2>Nuestros Servicios</h2>
+        <p class="intro">Te acompañamos en todo el proyecto: desde el estudio inicial hasta el trabajo en campo con nuestras propias máquinas.</p>
+
+        <div class="grid-servicios">
+            <article class="servicio">
+                <span class="servicio-numero">01</span>
+                <svg class="servicio-icono"><use href="#i-check"></use></svg>
+                <h3>Supervisión de obras</h3>
+                <p>Control técnico de calidad, plazos y seguridad en cada etapa de la obra.</p>
+            </article>
+            <article class="servicio">
+                <span class="servicio-numero">02</span>
+                <svg class="servicio-icono"><use href="#i-grafico"></use></svg>
+                <h3>Estudios de factibilidad</h3>
+                <p>Evaluamos si su proyecto es viable en lo técnico y en lo económico.</p>
+            </article>
+            <article class="servicio">
+                <span class="servicio-numero">03</span>
+                <svg class="servicio-icono"><use href="#i-plano"></use></svg>
+                <h3>Elaboración de proyectos</h3>
+                <p>Expedientes técnicos y planos listos para ejecutar.</p>
+            </article>
+            <article class="servicio">
+                <span class="servicio-numero">04</span>
+                <svg class="servicio-icono"><use href="#i-tierra"></use></svg>
+                <h3>Movimiento de tierras</h3>
+                <p>Excavación, carguío, acarreo y eliminación de material.</p>
+            </article>
+            <article class="servicio">
+                <span class="servicio-numero">05</span>
+                <svg class="servicio-icono"><use href="#i-excavadora"></use></svg>
+                <h3>Alquiler de maquinaria</h3>
+                <p>Equipos pesados en buen estado, con mantenimiento preventivo al día.</p>
+            </article>
+            <article class="servicio">
+                <span class="servicio-numero">06</span>
+                <svg class="servicio-icono"><use href="#i-camion"></use></svg>
+                <h3>Transporte de maquinaria</h3>
+                <p>Traslado seguro de equipos pesados en cama baja hasta su obra.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- MAQUINARIAS Y EQUIPOS -->
+<section id="maquinarias">
+    <div class="container">
+        <p class="etiqueta">Nuestra flota</p>
+        <h2>Maquinarias y Equipos</h2>
+        <p class="intro">Contamos con maquinaria y equipos propios para cada tipo de trabajo. Filtra por categoría:</p>
+
+        <div class="filtros" role="group" aria-label="Filtrar equipos por categoría">
+            <button type="button" class="filtro activo" data-categoria="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="filtro" data-categoria="pesada" aria-pressed="false">Maquinaria pesada</button>
+            <button type="button" class="filtro" data-categoria="transporte" aria-pressed="false">Transporte y topografía</button>
+            <button type="button" class="filtro" data-categoria="obra" aria-pressed="false">Equipos de obra</button>
+            <button type="button" class="filtro" data-categoria="taller" aria-pressed="false">Soldadura y bombeo</button>
+        </div>
+        <p class="contador" id="contadorEquipos" aria-live="polite"></p>
+
+        <div class="grid-equipos">
+            <article class="panel-equipos" data-categoria="pesada">
+                <div class="panel-cabecera">
+                    <svg><use href="#i-excavadora"></use></svg>
+                    <h3>Maquinaria pesada</h3>
+                </div>
+                <ul class="lista-check">
+                    <li>Excavadoras</li>
+                    <li>Retroexcavadoras</li>
+                    <li>Cargadores frontales</li>
+                    <li>Tractores de orugas</li>
+                    <li>Minicargadores</li>
+                    <li>Camiones volquetes</li>
+                </ul>
+            </article>
+            <article class="panel-equipos" data-categoria="transporte">
+                <div class="panel-cabecera">
+                    <svg><use href="#i-camion"></use></svg>
+                    <h3>Transporte y topografía</h3>
+                </div>
+                <ul class="lista-check">
+                    <li>Camionetas pick up doble cabina</li>
+                    <li>Equipos topográficos</li>
+                </ul>
+            </article>
+            <article class="panel-equipos" data-categoria="obra">
+                <div class="panel-cabecera">
+                    <svg><use href="#i-edificio"></use></svg>
+                    <h3>Equipos de obra</h3>
+                </div>
+                <ul class="lista-check">
+                    <li>Mezcladoras de concreto</li>
+                    <li>Vibradoras de concreto</li>
+                    <li>Planchas compactadoras</li>
+                    <li>Encofrados</li>
+                    <li>Sierras circulares</li>
+                </ul>
+            </article>
+            <article class="panel-equipos" data-categoria="taller">
+                <div class="panel-cabecera">
+                    <svg><use href="#i-chispa"></use></svg>
+                    <h3>Soldadura y bombeo</h3>
+                </div>
+                <ul class="lista-check">
+                    <li>Máquinas de soldar</li>
+                    <li>Equipos de oxicorte</li>
+                    <li>Motobombas</li>
+                    <li>Electrobombas</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- AGREGADOS -->
+<section id="agregados">
+    <div class="container">
+        <div class="banda-agregados">
+            <div class="agregados-texto">
+                <p class="etiqueta etiqueta-oscura">Materiales</p>
+                <h2>Venta de Todo Tipo de Agregados</h2>
+                <p>Disponibilidad y venta de todo tipo de agregados para proyectos de construcción.</p>
+                <ul class="chips">
+                    <li>Arena gruesa</li>
+                    <li>Arena fina</li>
+                    <li>Piedra chancada</li>
+                    <li>Hormigón</li>
+                    <li>Afirmado</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container pie">
+        <div class="pie-columna">
+            <img src="LOGO/logo.png" alt="Logo Grupo ACR E.I.R.L." class="pie-logo">
+            <p>Construcción, movimiento de tierras, transporte y alquiler de maquinaria pesada en Cajamarca desde 2014.</p>
+        </div>
+        <div class="pie-columna">
+            <h3>Enlaces</h3>
+            <ul>
+                <li><a href="nosotros.html">Conócenos</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#maquinarias">Maquinarias y Equipos</a></li>
+            </ul>
+        </div>
+        <div class="pie-columna">
+            <h3>Contacto</h3>
+            <p>Centro Poblado Cholocal Sector el Olivo, Cachachi, Cajabamba - Cajamarca</p>
+            <p><strong>Telefax:</strong> (076) 36 4448</p>
+            <p><strong>Correo:</strong> <a href="mailto:grupo_acr@hotmail.com">grupo_acr@hotmail.com</a></p>
+            <p><strong>Teléfonos:</strong></p>
+            <ul class="lista-telefonos">
+                <li><a href="tel:+51970261162">970 261 162</a> | <a href="tel:+51951538266">951 538 266</a></li>
+                <li><a href="tel:+51986710485">986 710 485</a> | <a href="tel:+51943347677">943 347 677</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="pie-copy">© 2026 GRUPO ANUARIO CABRERA RONCAL E.I.R.L. Todos los derechos reservados.</p>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/formulario.js"></script>
+</body>
+</html>
