@@ -1,6 +1,6 @@
 {
   "name": "grupo-acr-web",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Web de Grupo Anuario Cabrera Roncal E.I.R.L. - Programación Web UAIN1349P",
   "main": "server.js",
   "scripts": {

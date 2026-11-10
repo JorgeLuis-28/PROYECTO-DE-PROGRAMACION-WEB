@@ -1,0 +1,14 @@
+{
+    // Instala Express si falta (npm.cmd en Windows evita el bloqueo de scripts de PowerShell)
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Instalar dependencias",
+            "type": "shell",
+            "command": "npm",
+            "windows": { "command": "npm.cmd" },
+            "args": ["install", "--no-audit", "--no-fund"],
+            "problemMatcher": []
+        }
+    ]
+}

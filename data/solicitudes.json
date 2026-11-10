@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "fecha": "2026-11-03T15:20:00.000Z",
+    "nombre": "Cliente de prueba 1",
+    "correo": "cliente1@ejemplo.com",
+    "telefono": "900000001",
+    "servicio": "Alquiler de maquinaria",
+    "mensaje": "Necesito una excavadora por 5 días para una obra en Cajabamba.",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 2,
+    "fecha": "2026-11-05T13:05:00.000Z",
+    "nombre": "Cliente de prueba 2",
+    "correo": "cliente2@ejemplo.com",
+    "telefono": "",
+    "servicio": "Venta de agregados",
+    "mensaje": "Cotización de 20 m3 de piedra chancada puesta en obra.",
+    "estado": "En revisión"
+  },
+  {
+    "id": 3,
+    "fecha": "2026-11-07T20:40:00.000Z",
+    "nombre": "Cliente de prueba 3",
+    "correo": "cliente3@ejemplo.com",
+    "telefono": "900000003",
+    "servicio": "Movimiento de tierras",
+    "mensaje": "Nivelación de un terreno de 500 m2 para vivienda.",
+    "estado": "Atendida"
+  }
+]

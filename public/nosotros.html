@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conócenos | GRUPO ANUARIO CABRERA RONCAL E.I.R.L.</title>
+    <!-- 1° Bootstrap, 2° nuestros estilos (así los nuestros pueden cambiar a Bootstrap) -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ICONOS: se dibujan una sola vez y se usan con <use href="#i-nombre"> -->
+<svg class="d-none" aria-hidden="true">
+    <symbol id="i-mision" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-vision" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-personas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5.5 5"/></symbol>
+    <symbol id="i-corazon" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-medalla" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="m9 13.8-1.5 7.2 4.5-2.5 4.5 2.5-1.5-7.2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 14l2 2 4-4"/></symbol>
+    <symbol id="i-casco" viewBox="0 0 24 24"><path d="M3 17h18v2.5H3zM5 17a7 7 0 0 1 14 0M10 10.2V6h4v4.2"/></symbol>
+    <symbol id="i-mensaje" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></symbol>
+</svg>
+
+<!-- CABECERA: "navbar" de Bootstrap. En celular el menú se esconde detrás del botón ☰ -->
+<header class="cabecera sticky-top">
+    <nav class="navbar navbar-expand-xl" aria-label="Navegación principal">
+        <div class="container-fluid px-3 px-lg-5">
+            <a class="navbar-brand d-flex align-items-center gap-2 gap-md-3" href="index.html">
+                <img src="LOGO/logo.png" alt="Logo Grupo ACR E.I.R.L." class="logo-img">
+                <span>
+                    <span class="marca-nombre">GRUPO ANUARIO CABRERA RONCAL E.I.R.L.</span>
+                    <span class="marca-lema">Construcción • Movimiento de Tierras • Transporte • Maquinaria Pesada</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-xl-center gap-xl-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#tipos-obras">Obras</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#maquinarias">Maquinarias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#agregados">Agregados</a></li>
+                    <!-- "Intranet" la ve el público; "Panel" y "Cerrar sesión" solo el personal con sesión (js/sesion.js) -->
+                    <li class="nav-item solo-publico"><a class="nav-link" href="login.html">Intranet</a></li>
+                    <li class="nav-item solo-empresa d-none"><a class="nav-link" href="panel.html">Panel</a></li>
+                    <li class="nav-item solo-empresa d-none"><button type="button" class="btn btn-outline-dark btn-sm ms-xl-1 my-2 my-xl-0 btn-salir">Cerrar sesión</button></li>
+                    <li class="nav-item solo-publico"><a class="btn btn-acr ms-xl-2 my-2 my-xl-0" href="index.html#cotizacion">Cotizar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<section class="banner-pagina">
+    <h1 class="display-5 fw-bold">Conócenos</h1>
+    <p class="lead mb-0">Desde 2014 ejecutamos obras y prestamos servicios de construcción en Cajamarca, con calidad, seguridad y cuidado del medio ambiente.</p>
+</section>
+
+<!-- HISTORIA: texto a la izquierda (7 columnas) y foto a la derecha (5 columnas) -->
+<section class="seccion seccion-blanca">
+    <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-7">
+                <p class="etiqueta">Nuestra historia</p>
+                <h2 class="titulo-seccion">Quiénes somos</h2>
+                <p>GRUPO ANUARIO CABRERA RONCAL E.I.R.L. fue constituida en el año 2014 por <strong>Segundo Anuario Cabrera Rodríguez</strong>, joven empresario cajamarquino con amplia experiencia en minería, construcción y alquiler de equipos para movimiento de tierras. Decidió formar una empresa que brinde servicios de calidad, acorde con un mercado cajamarquino cada vez más exigente, para contribuir con el desarrollo y crecimiento económico de nuestra ciudad.</p>
+                <p>Nuestro servicio está a cargo de un equipo de profesionales especializados y con gran experiencia en minería y construcción. Nuestro liderazgo se basa en el uso óptimo de los recursos y en el cumplimiento de políticas propias de eficiencia.</p>
+                <p>A la construcción de obras de edificación se sumaron las de saneamiento, viviendas, hidráulicas y viales. Hoy también ofrecemos supervisión de obras, estudios de factibilidad, elaboración de proyectos, movimiento de tierras y alquiler de maquinaria.</p>
+                <p>Nos formamos con la finalidad de contribuir al desarrollo sostenible del <strong>valle de Condebamba y anexos</strong>, con clientes totalmente conformes con el servicio brindado.</p>
+
+                <div class="row g-3 text-center mt-2">
+                    <div class="col-4"><div class="dato-clave"><strong>2014</strong><span class="small">Fundación</span></div></div>
+                    <div class="col-4"><div class="dato-clave"><strong>8</strong><span class="small">Tipos de obra</span></div></div>
+                    <div class="col-4"><div class="dato-clave"><strong>17</strong><span class="small">Tipos de equipos</span></div></div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <figure class="historia-foto shadow mb-0">
+                    <img src="img/empresa/camioneta-acr.jpg" class="img-fluid rounded-3" alt="Camioneta pick up doble cabina con el logo de Grupo ACR E.I.R.L.">
+                    <figcaption class="text-center small text-secondary mt-2">Unidad de la empresa para supervisión y traslado de personal</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MISIÓN Y VISIÓN -->
+<section class="seccion">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <article class="bloque-mv h-100">
+                    <span class="icono-circulo"><svg class="icono" aria-hidden="true"><use href="#i-mision"></use></svg></span>
+                    <h2 class="titulo-seccion">Misión</h2>
+                    <p class="mb-0">Ejecutar obras y prestar servicios de construcción que satisfagan plenamente las necesidades de nuestros clientes, utilizando todas las herramientas necesarias para que los trabajos sean realizados con calidad, seguridad y cuidado del medio ambiente. Así mismo, contribuir con el desarrollo de la sociedad y generar valores.</p>
+                </article>
+            </div>
+            <div class="col-md-6">
+                <article class="bloque-mv h-100">
+                    <span class="icono-circulo"><svg class="icono" aria-hidden="true"><use href="#i-vision"></use></svg></span>
+                    <h2 class="titulo-seccion">Visión</h2>
+                    <p class="mb-0">Ser parte del grupo de empresas constructoras líderes en el Perú que contribuyan con el crecimiento del país, ejecutando obras que sean reconocidas por la calidad, seguridad y cuidado del medio ambiente durante su ejecución.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VALORES: row-cols-lg-5 = 5 tarjetas por fila en PC -->
+<section class="seccion seccion-blanca">
+    <div class="container text-center">
+        <p class="etiqueta">Lo que nos guía</p>
+        <h2 class="titulo-seccion mb-4">Nuestros Valores</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4">
+            <div class="col">
+                <article class="card tarjeta h-100 p-4">
+                    <div><span class="icono-circulo"><svg class="icono" aria-hidden="true"><use href="#i-personas"></use></svg></span></div>
+                    <h3 class="h6 fw-bold">Respeto</h3>
+                    <p class="text-secondary small mb-0">Por las personas y por los compromisos adquiridos.</p>
+                </article>
+            </div>
+            <div class="col">
+                <article class="card tarjeta h-100 p-4">
+                    <div><span class="icono-circulo"><svg class="icono" aria-hidden="true"><use href="#i-corazon"></use></svg></span></div>
+                    <h3 class="h6 fw-bold">Solidaridad</h3>
+                    <p class="text-secondary small mb-0">Sentido del interés común y solidario.</p>
+                </article>
+            </div>
+            <div class="col">
+                <article class="card tarjeta h-100 p-4">
+                    <div><span class="icono-circulo"><svg class="icono" aria-hidden="true"><use href="#i-escudo"></use></svg></span></div>
+                    <h3 class="h6 fw-bold">Calidad y seguridad</h3>
+                    <p class="text-secondary small mb-0">Aseguramiento de la calidad, de la seguridad y del cuidado del medio ambiente.</p>
+                </article>
+            </div>
+            <div class="col">
+                <article class="card tarjeta h-100 p-4">
+                    <div><span class="icono-circulo"><svg class="icono" aria-hidden="true"><use href="#i-medalla"></use></svg></span></div>
+                    <h3 class="h6 fw-bold">Profesionalismo</h3>
+                    <p class="text-secondary small mb-0">Trabajo técnico, ordenado y hecho por especialistas.</p>
+                </article>
+            </div>
+            <div class="col">
+                <article class="card tarjeta h-100 p-4">
+                    <div><span class="icono-circulo"><svg class="icono" aria-hidden="true"><use href="#i-check"></use></svg></span></div>
+                    <h3 class="h6 fw-bold">Responsabilidad</h3>
+                    <p class="text-secondary small mb-0">Cumplimos lo que prometemos, en plazo y forma.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCEDIMIENTOS Y RELACIÓN CON EL CLIENTE -->
+<section class="seccion seccion-oscura">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <article class="servicio h-100">
+                    <svg class="icono" aria-hidden="true"><use href="#i-casco"></use></svg>
+                    <h2 class="h5 fw-bold text-white">Procedimientos y estándares</h2>
+                    <p class="mb-0">Cumplimos con los procedimientos exigidos por los principales proyectos mineros, lugares donde desarrollan actividades nuestros clientes. Para ello capacitamos continuamente a nuestro personal con charlas diarias sobre seguridad, medio ambiente y procedimientos.</p>
+                </article>
+            </div>
+            <div class="col-md-6">
+                <article class="servicio h-100">
+                    <svg class="icono" aria-hidden="true"><use href="#i-mensaje"></use></svg>
+                    <h2 class="h5 fw-bold text-white">Relación con el cliente</h2>
+                    <p class="mb-0">La relación con nuestros clientes es lo más importante para nosotros. Estamos a su servicio a tiempo completo para que se sientan satisfechos con nuestros productos y servicios, y a su disposición ante cualquier duda o reclamo.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="seccion">
+    <div class="container d-flex flex-wrap justify-content-center gap-3">
+        <a href="index.html#cotizacion" class="btn btn-acr btn-lg">Solicitar cotización</a>
+        <a href="index.html" class="btn btn-borde-acr btn-lg">Volver al inicio</a>
+    </div>
+</section>
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer class="pie pt-5 pb-3">
+    <div class="container">
+        <div class="row g-4 mb-4">
+            <div class="col-md-8">
+                <img src="LOGO/logo.png" alt="Logo Grupo ACR E.I.R.L." class="pie-logo mb-3">
+                <p class="small mb-0">Construcción, movimiento de tierras, transporte y alquiler de maquinaria pesada en Cajamarca desde 2014.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="h6 text-warning fw-bold">Enlaces</h2>
+                <ul class="list-unstyled small mb-0">
+                    <li><a href="nosotros.html">Conócenos</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#cotizacion">Solicitar cotización</a></li>
+                    <li class="solo-publico"><a href="login.html">Intranet del personal</a></li>
+                    <li class="solo-empresa d-none"><a href="panel.html">Panel de la empresa</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center small text-secondary border-top border-secondary pt-3 mb-0">© 2026 GRUPO ANUARIO CABRERA RONCAL E.I.R.L. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+<!-- JavaScript: 1° Bootstrap (menú ☰), 2° sesión, 3° el de esta página -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sesion.js"></script>
+</body>
+</html>

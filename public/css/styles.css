@@ -1,0 +1,557 @@
+/* =====================================================
+   ESTILOS PROPIOS DEL PROYECTO
+   Bootstrap hace la mayor parte del trabajo (columnas, botones,
+   formularios, tablas). Aquí solo va lo que es "nuestro":
+   colores de la marca, carrusel, tarjetas y detalles.
+
+   ÍNDICE
+   1. Colores de la marca y personalización de Bootstrap
+   2. Generales
+   3. Cabecera (navbar)
+   4. Carrusel del inicio
+   5. Títulos de sección
+   6. Tarjetas (tipos de obra, valores)
+   7. Servicios (franja oscura)
+   8. Maquinarias (filtro)
+   9. Agregados
+   10. Formularios (cotización y acceso)
+   11. Página Conócenos
+   12. Panel de la empresa
+   13. Pie de página
+   14. Accesibilidad
+   15. Responsive (celular)
+   ===================================================== */
+
+
+/* 1. COLORES DE LA MARCA Y PERSONALIZACIÓN DE BOOTSTRAP */
+:root {
+    --naranja: #f59e0b;
+    --naranja-oscuro: #d97706;
+    --naranja-texto: #b45309;   /* naranja con buen contraste sobre blanco */
+    --naranja-claro: #fff7e6;
+    --oscuro: #1f1f1f;
+
+    /* Bootstrap: cambiamos su color de enlaces y su fuente */
+    --bs-link-color: var(--naranja-texto);
+    --bs-link-hover-color: var(--naranja-oscuro);
+    --bs-body-font-family: Arial, sans-serif;
+}
+
+/* Botón propio basado en .btn de Bootstrap (solo cambiamos sus variables) */
+.btn-acr {
+    --bs-btn-bg: var(--naranja);
+    --bs-btn-border-color: var(--naranja);
+    --bs-btn-color: #1a1a1a;
+    --bs-btn-hover-bg: var(--naranja-oscuro);
+    --bs-btn-hover-border-color: var(--naranja-oscuro);
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-active-bg: var(--naranja-oscuro);
+    --bs-btn-active-border-color: var(--naranja-oscuro);
+    --bs-btn-font-weight: 700;
+}
+
+.btn-borde-acr {
+    --bs-btn-color: var(--naranja-texto);
+    --bs-btn-border-color: var(--naranja);
+    --bs-btn-hover-bg: var(--naranja);
+    --bs-btn-hover-border-color: var(--naranja);
+    --bs-btn-hover-color: #1a1a1a;
+    --bs-btn-active-bg: var(--naranja);
+    --bs-btn-active-color: #1a1a1a;
+    --bs-btn-font-weight: 700;
+}
+
+
+/* 2. GENERALES */
+body {
+    background-color: #f5f5f5;   /* gris claro de fondo (Bootstrap usa blanco) */
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;   /* la cabecera fija no tapa los títulos */
+}
+
+.seccion {
+    padding: 70px 0;
+}
+
+.seccion-blanca {
+    background: #ffffff;
+}
+
+.icono {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Círculo naranja claro donde va un ícono */
+.icono-circulo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--naranja-claro);
+    color: var(--naranja-oscuro);
+    margin-bottom: 14px;
+    transition: background 0.3s, color 0.3s;
+}
+
+
+/* 3. CABECERA (navbar de Bootstrap) */
+.cabecera {
+    background: #ffffff;
+    border-top: 5px solid var(--naranja);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.logo-img {
+    height: 62px;
+}
+
+.marca-nombre {
+    display: block;
+    color: var(--naranja);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.marca-lema {
+    display: block;
+    color: #555555;
+    font-size: 0.78rem;
+}
+
+.cabecera .nav-link {
+    font-weight: bold;
+    color: #2b2b2b;
+    border-radius: 8px;
+}
+
+.cabecera .nav-link:hover {
+    background: var(--naranja-claro);
+    color: var(--naranja-oscuro);
+}
+
+
+/* 4. CARRUSEL DEL INICIO */
+.hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    overflow: hidden;
+    background: #222222;
+    color: #ffffff;
+}
+
+.carrusel-pista,
+.slide {
+    position: absolute;
+    inset: 0;                     /* ocupa todo el hero */
+}
+
+.slide {
+    margin: 0;
+    opacity: 0;                   /* ocultas por defecto */
+    transition: opacity 0.8s ease;
+}
+
+.slide.activo {
+    opacity: 1;                   /* solo la activa se ve */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;            /* recorta sin deformar */
+}
+
+.slide::after {                   /* capa oscura para leer el texto */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65));
+}
+
+.slide figcaption {
+    position: absolute;
+    left: 25px;
+    bottom: 70px;
+    z-index: 1;
+    background: var(--naranja);
+    color: #1a1a1a;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 8px;
+}
+
+.hero-contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-contenido h1,
+.hero-contenido p {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 1.4rem;
+}
+
+.carrusel-btn:hover {
+    background: var(--naranja);
+}
+
+.anterior { left: 20px; }
+.siguiente { right: 20px; }
+
+.carrusel-pie {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.punto {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    background: transparent;
+}
+
+.punto.activo {
+    background: var(--naranja);
+    border-color: var(--naranja);
+}
+
+.carrusel-pausa {
+    border: 2px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    padding: 3px 7px;
+}
+
+
+/* 5. TÍTULOS DE SECCIÓN */
+.etiqueta {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--naranja-texto);
+    margin-bottom: 6px;
+}
+
+.titulo-seccion {
+    color: var(--naranja);
+    font-weight: 700;
+}
+
+.intro {
+    max-width: 680px;
+    margin: 0 auto 35px;
+    color: #555555;
+}
+
+
+/* 6. TARJETAS (tipos de obra y valores) */
+.tarjeta {
+    border: none;
+    border-top: 4px solid transparent;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+    border-top-color: var(--naranja);
+}
+
+.tarjeta:hover .icono-circulo {
+    background: var(--naranja);
+    color: #ffffff;
+}
+
+/* Misión y visión */
+.bloque-mv {
+    background: #fffdf8;
+    border: 1px solid #fde3b0;
+    border-left: 6px solid var(--naranja);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+
+/* 7. SERVICIOS (franja oscura) */
+.seccion-oscura {
+    background: var(--oscuro);
+    color: #e5e5e5;
+}
+
+.seccion-oscura .etiqueta {
+    color: #fbbf24;
+}
+
+.seccion-oscura .intro {
+    color: #bdbdbd;
+}
+
+.servicio {
+    position: relative;
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: 16px;
+    padding: 30px 26px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.servicio:hover {
+    transform: translateY(-6px);
+    border-color: var(--naranja);
+}
+
+.servicio .icono {
+    width: 40px;
+    height: 40px;
+    color: var(--naranja);
+    margin-bottom: 14px;
+}
+
+.servicio-numero {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: rgba(245, 158, 11, 0.2);
+}
+
+
+/* 8. MAQUINARIAS (filtro) */
+.filtro.active {                    /* "active" es la clase que pone el JavaScript */
+    background: var(--naranja);
+    color: #1a1a1a;
+}
+
+.panel-cabecera {
+    background: var(--naranja);
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.lista-check li {
+    padding: 8px 0 8px 28px;
+    border-bottom: 1px dashed #eeeeee;
+    position: relative;
+}
+
+.lista-check li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--naranja-oscuro);
+    font-weight: bold;
+}
+
+
+/* 9. AGREGADOS */
+.banda-agregados {
+    background: linear-gradient(135deg, var(--naranja), var(--naranja-oscuro));
+    border-radius: 22px;
+}
+
+
+/* 10. FORMULARIOS (cotización y acceso de la empresa) */
+.caja-formulario {
+    border: none;
+    border-top: 4px solid var(--naranja);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--naranja);
+    box-shadow: 0 0 0 0.25rem rgba(245, 158, 11, 0.25);
+}
+
+
+/* 11. PÁGINA CONÓCENOS */
+.banner-pagina {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    color: #ffffff;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)),
+        url("../img/carrusel/excavadora-cat.jpg") center 40% / cover;
+}
+
+.historia-foto {
+    background: #f3efe7;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.dato-clave {
+    background: var(--naranja-claro);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.dato-clave strong {
+    display: block;
+    font-size: 1.7rem;
+    color: var(--naranja-oscuro);
+}
+
+
+/* 12. PANEL DE LA EMPRESA */
+.resumen {
+    border: none;
+    border-left: 5px solid var(--naranja);
+    border-radius: 12px;
+}
+
+.resumen strong {
+    font-size: 1.8rem;
+}
+
+.mensaje-celda {
+    max-width: 320px;
+}
+
+
+/* 13. PIE DE PÁGINA */
+.pie {
+    background: #1a1a1a;
+    color: #cfcfcf;
+}
+
+.pie a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.pie a:hover {
+    color: var(--naranja);
+}
+
+.pie-logo {
+    height: 60px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+
+/* 14. ACCESIBILIDAD */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--naranja);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .slide,
+    .tarjeta,
+    .servicio { transition: none; }
+}
+
+
+/* 15. RESPONSIVE (celular) */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 46px;
+    }
+
+    .navbar-brand {
+        flex: 1;                   /* el logo ocupa el espacio que deja el botón ☰ */
+        min-width: 0;
+        white-space: normal;
+    }
+
+    .marca-nombre {
+        font-size: 0.8rem;
+    }
+
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+
+    .marca-lema {
+        display: none;
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero-contenido {
+        padding: 0 35px;           /* espacio para las flechas */
+    }
+
+    .carrusel-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .anterior { left: 8px; }
+    .siguiente { right: 8px; }
+
+    .slide figcaption {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 60px;
+        white-space: nowrap;
+        font-size: 0.8rem;
+    }
+
+    .seccion {
+        padding: 50px 0;
+    }
+}
+
+/* En pantallas de 1200 a 1399 px el menú no cabe junto al lema: se oculta el lema */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .marca-lema { display: none; }
+    .navbar .nav-link { padding-left: .45rem; padding-right: .45rem; }
+    .marca-nombre { font-size: 1rem; display: block; max-width: 270px; white-space: normal; line-height: 1.15; }
+}

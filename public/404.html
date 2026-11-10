@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada | GRUPO ACR E.I.R.L.</title>
+    <!-- 1° Bootstrap, 2° nuestros estilos (así los nuestros pueden cambiar a Bootstrap) -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+
+<!-- CABECERA: "navbar" de Bootstrap. En celular el menú se esconde detrás del botón ☰ -->
+<header class="cabecera sticky-top">
+    <nav class="navbar navbar-expand-xl" aria-label="Navegación principal">
+        <div class="container-fluid px-3 px-lg-5">
+            <a class="navbar-brand d-flex align-items-center gap-2 gap-md-3" href="index.html">
+                <img src="LOGO/logo.png" alt="Logo Grupo ACR E.I.R.L." class="logo-img">
+                <span>
+                    <span class="marca-nombre">GRUPO ANUARIO CABRERA RONCAL E.I.R.L.</span>
+                    <span class="marca-lema">Construcción • Movimiento de Tierras • Transporte • Maquinaria Pesada</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-xl-center gap-xl-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#tipos-obras">Obras</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#maquinarias">Maquinarias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#agregados">Agregados</a></li>
+                    <!-- "Intranet" la ve el público; "Panel" y "Cerrar sesión" solo el personal con sesión (js/sesion.js) -->
+                    <li class="nav-item solo-publico"><a class="nav-link" href="login.html">Intranet</a></li>
+                    <li class="nav-item solo-empresa d-none"><a class="nav-link" href="panel.html">Panel</a></li>
+                    <li class="nav-item solo-empresa d-none"><button type="button" class="btn btn-outline-dark btn-sm ms-xl-1 my-2 my-xl-0 btn-salir">Cerrar sesión</button></li>
+                    <li class="nav-item solo-publico"><a class="btn btn-acr ms-xl-2 my-2 my-xl-0" href="index.html#cotizacion">Cotizar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="seccion text-center">
+    <div class="container">
+        <h1 class="display-1 fw-bold titulo-seccion">404</h1>
+        <p class="lead">La página que buscas no existe.</p>
+        <a href="index.html" class="btn btn-acr btn-lg">Volver al inicio</a>
+    </div>
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer class="pie pt-5 pb-3">
+    <div class="container">
+        <div class="row g-4 mb-4">
+            <div class="col-md-8">
+                <img src="LOGO/logo.png" alt="Logo Grupo ACR E.I.R.L." class="pie-logo mb-3">
+                <p class="small mb-0">Construcción, movimiento de tierras, transporte y alquiler de maquinaria pesada en Cajamarca desde 2014.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="h6 text-warning fw-bold">Enlaces</h2>
+                <ul class="list-unstyled small mb-0">
+                    <li><a href="nosotros.html">Conócenos</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#cotizacion">Solicitar cotización</a></li>
+                    <li class="solo-publico"><a href="login.html">Intranet del personal</a></li>
+                    <li class="solo-empresa d-none"><a href="panel.html">Panel de la empresa</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center small text-secondary border-top border-secondary pt-3 mb-0">© 2026 GRUPO ANUARIO CABRERA RONCAL E.I.R.L. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+<!-- JavaScript: 1° Bootstrap (menú ☰), 2° sesión, 3° el de esta página -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sesion.js"></script>
+</body>
+</html>
